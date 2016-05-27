@@ -873,7 +873,9 @@ static PiwikTracker *_sharedInstance;
     
     // Reset session params and visit custom variables to force a rebuild
     self.sessionParameters = nil;
-    self.visitCustomVariables = nil;
+      
+    /** Prevent reset the custom variables for first session request **/
+    //self.visitCustomVariables = nil;
     
     // Send notifications to allow observers to set new visit custom variables
     [[NSNotificationCenter defaultCenter] postNotificationName:PiwikSessionStartNotification object:self];
